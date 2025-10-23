@@ -2,7 +2,7 @@
 Dataset DOI: [10.5061/dryad.ncjsxkt66](https://doi.org/10.5061/dryad.ncjsxkt66)
 
 ## Description of the data and file structure
-This dataset contains all analytical code for this project along with associated files, two versions of the final VCF, and selection statistic output files.
+This dataset contains all analytical code for this manuscript along with associated data files, two versions of the final VCF, and selection statistic output files.
 
 ## Data Files
 #### VCFs:
@@ -19,37 +19,57 @@ This dataset contains all analytical code for this project along with associated
 - XP-CLR.zip
 - REHH_Rsb_10_Kbp_windows.zip
 
-#### Other Files:
+#### Sample and Population Text Files for Scripts:
+- pops.txt
+- Population_Map.txt
+- pop_comps.tsv
+- PRE.ind
+- pop_scaff.tsv
+
+#### Alignment and Variant Statistics:
+- hicov_coverage.tsv -- per-scaffold alignment statistics for "high coverage" individuals
+- lowcov_coverage.tsv -- per-scaffold alignment statistics for "shallow coverage" individuals
 - SNP_filtering.txt -- Type and number of variants filtered per scaffold
 
 ## Scripts & Code
 #### SNP Calling Pipeline:
 - **call_SNPs_pipeline.zip**
 - Components:
-  - X
-- Requirements: 
-- Input(s): 
+  - clean_align_callSNPs.sbatch -- master script
+  - HTS_preproc.slurm -- clean fastQs; pipeline component
+  - hashDRAGMAP.slurm -- build reference genome hash table; pipeline component
+  - alignDRAGMAP.slurm -- align fastQs to reference genome; pipeline component
+  - samtools_merge.slurm -- merge sample bams; pipeline component
+  - genome_wins.slurm -- create .bed for genome windows; pipeline component
+  - align_stats.slurm -- calculate alignment statistics; pipeline component
+  - STRtable.slurm -- create STR table; pipeline component
+  - bam_to_gvcf.slurm -- call variants per individual; pipeline component
+  - gvcf_to_vcf_scaff.slurm -- joint call variants; pipeline component
+  - vcf_scaff_to_snp.vcf.slurm -- combine VCFs and filter; pipeline component
+- Dependencies: [HTStream](https://s4hts.github.io/HTStream/#hts_QWindowTrim), [DRAGMAP v1.2.1](https://github.com/Illumina/DRAGMAP), [picard](https://github.com/broadinstitute/picard), [GATK4](https://github.com/broadinstitute/gatk), [samtools](https://github.com/samtools/samtools), [bedtools](https://github.com/arq5x/bedtools2), [bcftools](https://github.com/samtools/bcftools)
+- Input(s): [raw sequencing files](SRA LINK), [*M. lucifugus* reference genome](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_048340685.1/), RG_info.tsv, all_samples.txt, all_samples.merge.txt
+- For more details see the associated [github repository](https://github.com/slcapel/DRAGEN-GATK4_SNP_calling_pipeline)
 
 #### Selection Statistic Calculation:
 - **ANGSD_Fst.md**
-  - Requirements: ANGSD v0.940, bcftools, 
+  - Dependencies: ANGSD v0.940 and bcftools
   - Input(s): gatk.snp.qual_hard_filtered_autosomes.vcf.gz, pops.txt, Population_Map.txt, pop_comps.tsv
 - **XP-CLR.sbatch**
-  - Requirements: 
-  - Input(s): 
+  - Dependencies: XP-CLR, bcftools, and tabix
+  - Input(s): gatk.snp.qual_hard_filtered_autosomes.vcf.gz, pop_comps.tsv
 - **rehh.md**
-  - Requirements: 
-  - Input(s): 
+  - Dependencies: java 17, bcftools, vcftools, vcffilterjdk, BEAGLE, R, rehh, strigr
+  - Input(s): gatk.snp.qual_hard_filtered_autosomes.vcf.gz, PRE.ind, pop_scaff.tsv, pop_comps.tsv
 
 #### Identify Selection Statistic Outliers:
 - **ANGSD_Fst_outliers.R**
-  - Requirements: 
+  - Dependencies: 
   - Input(s): 
 - **XP-CLR_outliers.R**
-  - Requirements: 
+  - Dependencies: 
   - Input(s): 
 - **REHH_Rsb_outliers.R**
-  - Requirements: 
+  - Dependencies: 
   - Input(s): 
 
 ### Other Scripts:
