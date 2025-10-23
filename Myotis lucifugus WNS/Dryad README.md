@@ -46,20 +46,20 @@ This dataset contains all analytical code for this manuscript along with associa
   - bam_to_gvcf.slurm -- call variants per individual; pipeline component
   - gvcf_to_vcf_scaff.slurm -- joint call variants; pipeline component
   - vcf_scaff_to_snp.vcf.slurm -- combine VCFs and filter; pipeline component
-- Dependencies: [HTStream](https://s4hts.github.io/HTStream/#hts_QWindowTrim), [DRAGMAP v1.2.1](https://github.com/Illumina/DRAGMAP), [picard](https://github.com/broadinstitute/picard), [GATK4](https://github.com/broadinstitute/gatk), [samtools](https://github.com/samtools/samtools), [bedtools](https://github.com/arq5x/bedtools2), [bcftools](https://github.com/samtools/bcftools)
-- Input(s): [raw sequencing files](SRA LINK), [*M. lucifugus* reference genome](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_048340685.1/), RG_info.tsv, all_samples.txt, all_samples.merge.txt
+- Dependencies: [HTStream](https://s4hts.github.io/HTStream/#hts_QWindowTrim), [DRAGMAP v1.2.1](https://github.com/Illumina/DRAGMAP), [picard](https://github.com/broadinstitute/picard), [GATK4](https://github.com/broadinstitute/gatk), [samtools](https://github.com/samtools/samtools), [bedtools](https://github.com/arq5x/bedtools2), and [bcftools](https://github.com/samtools/bcftools)
+- Inputs: [raw sequencing files](SRA LINK), [*M. lucifugus* reference genome](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_048340685.1/), RG_info.tsv, all_samples.txt, all_samples.merge.txt
 - For more details see the associated [github repository](https://github.com/slcapel/DRAGEN-GATK4_SNP_calling_pipeline)
 
 #### Selection Statistic Calculation:
-- **ANGSD_Fst.md**
-  - Dependencies: ANGSD v0.940 and bcftools
-  - Input(s): gatk.snp.qual_hard_filtered_autosomes.vcf.gz, pops.txt, Population_Map.txt, pop_comps.tsv
-- **XP-CLR.sbatch**
-  - Dependencies: XP-CLR, bcftools, and tabix
-  - Input(s): gatk.snp.qual_hard_filtered_autosomes.vcf.gz, pop_comps.tsv
-- **rehh.md**
-  - Dependencies: java 17, bcftools, vcftools, vcffilterjdk, BEAGLE, R, rehh, strigr
-  - Input(s): gatk.snp.qual_hard_filtered_autosomes.vcf.gz, PRE.ind, pop_scaff.tsv, pop_comps.tsv
+- **ANGSD_Fst.md** -- calculate population pariwise F<sub>ST</sub> in 10 Kbp windows for all population comparisons
+  - Dependencies: [ANGSD v0.940](https://anaconda.org/bioconda/angsd) and [bcftools](https://github.com/samtools/bcftools)
+  - Inputs: gatk.snp.qual_hard_filtered_autosomes.vcf.gz, pops.txt, Population_Map.txt, pop_comps.tsv
+- **XP-CLR.sbatch** -- calculate XP-CLR in 10 Kbp windows for all population comparisons
+  - Dependencies: [XP-CLR](https://github.com/hardingnj/xpclr), [bcftools](https://github.com/samtools/bcftools), and [tabix](https://www.htslib.org/doc/tabix.html)
+  - Inputs: gatk.snp.qual_hard_filtered_autosomes.vcf.gz, pop_comps.tsv
+- **rehh.md** -- polarize VCF alleles, phase genotypes, and calculate Rsb 10 Kbp windows for all population comparisons
+  - Dependencies: [java 17](https://anaconda.org/conda-forge/openjdk/files?page=0&type=&version=17.0.3), [bcftools](https://github.com/samtools/bcftools), [vcftools](https://vcftools.sourceforge.net/man_latest.html), [vcffilterjdk](https://lindenb.github.io/jvarkit/VcfFilterJdk.html), [beagle v5.4](https://faculty.washington.edu/browning/beagle/beagle_5.4_18Mar22.pdf), [R](https://www.r-project.org/), [rehh](https://cran.r-project.org/web/packages/rehh/index.html), and [strigr](https://cran.r-project.org/web/packages/stringr/index.html)
+  - Inputs: gatk.snp.qual_hard_filtered_autosomes.vcf.gz, PRE.ind, pop_scaff.tsv, pop_comps.tsv
 
 #### Identify Selection Statistic Outliers:
 - **ANGSD_Fst_outliers.R**
@@ -75,4 +75,4 @@ This dataset contains all analytical code for this manuscript along with associa
 ### Other Scripts:
 - **SNPRelate.R** -- Calculate pairwise kinship using SNPRelate's IBD MLE method
   - Requirements: [R](https://www.r-project.org/), [SNPRelate](https://www.rdocumentation.org/packages/SNPRelate/versions/1.6.4), and [gdsfmt](https://www.bioconductor.org/packages/release/bioc/html/gdsfmt.html)
-  - Input(s): gatk.snp.qual_hard_filtered_autosomes_thin.vcf.gz
+  - Input: gatk.snp.qual_hard_filtered_autosomes_thin.vcf.gz
