@@ -1,4 +1,3 @@
-```bash
 #!/bin/bash
 
 aklog
@@ -77,4 +76,3 @@ outdir="${dir}/10Kb_500SNPsmax"
 xpclr -F vcf -I $vcf -C $scaff -Sa $pop1 -Sb $pop2 --size 10000 --step 9000 --minsnps 2 --maxsnps 500 -O $outdir/${scaff}_${p1}_${p2}.out -V 10
 
 (exit) && echo success
-```
