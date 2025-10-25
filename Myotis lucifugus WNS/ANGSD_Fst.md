@@ -13,9 +13,10 @@
 
 dir="/share/cdfwwildlife/MYLU_NovaSeq"
 angsd="$dir/05_AnalysisOutput/ANGSD"
-vcf="gatk.snp.super_filtered_autosomes"
-pop=`sed "${SLURM_ARRAY_TASK_ID}q;d" $dir/Sample_Lists/pops.txt`
+vcf="gatk.snp.qual_hard_filtered_autosomes"
+pop=`sed "${SLURM_ARRAY_TASK_ID}q;d" $dir/pops.txt`
 
+# initiate conda for ANGSD
 aklog
 source /share/cdfwwildlife/Capel_Dedicated/miniconda/etc/profile.d/conda.sh
 conda activate base
@@ -24,16 +25,16 @@ module load bcftools
 echo $HOSTNAME
 echo $pop
 
-## edit vcf header for ANGSD compatability and reduce to a single population "pop"
+# edit vcf header for ANGSD compatability and reduce to a single population "pop"
 INFO='##INFO=<ID=INDEL,Number=0,Type=Flag,Description=\"\">'
 tail -n +2 $dir/Sample_Lists/Population_Map.txt | cut -f 1,2 | grep $pop | cut -f 1 > $dir/Sample_Lists/$pop.ind
-bcftools view -S $dir/Sample_Lists/$pop.ind $dir/04_GATKvcfs/$vcf.vcf.gz | awk -v infohdr=$INFO '/^#CHROM/ {print infohdr"\n"$0} !/^#CHROM/' | bcftools view -Oz -o $angsd/$vcf/$pop.vcf.gz
+bcftools view -S $dir/$pop.ind $dir/$vcf.vcf.gz | awk -v infohdr=$INFO '/^#CHROM/ {print infohdr"\n"$0} !/^#CHROM/' | bcftools view -Oz -o $angsd/$vcf/$pop.vcf.gz
 
-## estimate global SFS
+# estimate global SFS
 angsd -vcf-pl $angsd/$vcf/$pop.vcf.gz -doSaf 1 -anc $dir/REF/HiC_Genome/mMyoLuc1.fa -P 1 -out $angsd/$vcf/$pop
 realSFS check $angsd/$vcf/$pop.saf.idx
 
-## calculate thetas
+# calculate thetas
 realSFS $angsd/$vcf/$pop.saf.idx -fold 1 -P 1 > $angsd/$vcf/$pop.sfs  # calculate folded SFS due to uknown ancestral states
 realSFS saf2theta $angsd/$vcf/$pop.saf.idx -sfs $angsd/$vcf/$pop.sfs -outname $angsd/$vcf/$pop
 thetaStat print $angsd/$vcf/$pop.thetas.idx  # view index file
@@ -77,7 +78,7 @@ realSFS fst index $angsd/$vcf/$pop1.saf.idx $angsd/$vcf/$pop2.saf.idx -sfs $angs
 realSFS fst print $angsd/$vcf/Fst/$pop1.$pop2.fst.idx | wc -l
 realSFS fst stats $angsd/$vcf/Fst/$pop1.$pop2.fst.idx  # get the global estimate
 realSFS fst stats2 $angsd/$vcf/Fst/$pop1.$pop2.fst.idx -win 10000 -step 9000 -P16 > $angsd/$vcf/Fst/10Kb/$pop1.$pop2.win.fst  # calculate Fst in 10 Kbp windows
-cat $angsd/$vcf/Fst/10Kb/$pop1.$pop2.win.fst | sed -E 's/Nsites/Nsites\tFst/' >temp && mv temp $angsd/$vcf/Fst/10Kb/$pop1.$pop2.win.fst
+cat $angsd/$vcf/Fst/10Kb/$pop1.$pop2.win.fst | sed -E 's/Nsites/Nsites\tFst/' > temp && mv temp $angsd/$vcf/Fst/10Kb/$pop1.$pop2.win.fst
 
 (exit) && echo success
 ```
