@@ -24,7 +24,8 @@ This dataset contains all analytical code for this manuscript along with associa
 - Population_Map.tsv -- population and sampling site information for each individual
 - pop_comps.tsv -- text file of all pairwise comparisons
 - PRE.ind -- all pre-WNS individuals
-- pop_scaff.tsv -- text file input for phasing genotypes
+- pop_scaff.tsv -- text file input for phasing genotypes in **rehh.md**
+- comps.tsv -- text file input for **XP-CLR.sbatch**
 
 #### Alignment and Variant Statistics:
 - hicov_coverage.tsv -- per-scaffold alignment statistics for "high coverage" individuals
