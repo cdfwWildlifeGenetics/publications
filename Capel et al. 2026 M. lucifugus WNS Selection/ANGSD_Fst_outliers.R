@@ -2,7 +2,7 @@ ds <- "10Kb"
 wgmin <- 20  # 5Kb = 10; 10Kb = 20)
 binex <- "1-25"
 
-setwd(paste("C:/Users/SCapel/OneDrive - California Department of Fish and Wildlife/Research/MYLU WGR/R data/ANGSD Fst/quality filtered ",ds,sep = ""))
+setwd("C:/Users/SCapel/OneDrive - California Department of Fish and Wildlife/Research/MYLU WGR/Data/Updated Fst and subsequent results/ANGSD_Fst/ANGSD_Fst_10kbp_windows/")
 
 library(ggplot2)
 library(dplyr)
@@ -14,7 +14,7 @@ library(grid)
 # READ IN DATA #
 ################
 
-files <- list.files()
+files <- list.files(pattern = ".win.fst")
 data <- data.frame()
 for (i in files) {
   comp <- gsub(".win.fst", replacement = "", x = i)
@@ -231,3 +231,4 @@ d5sdwg$scaff <- paste("SUPER__", d5sdwg$chr, sep = "")
 d5sdwg$start <- gsub("\\([0-9]+,[0-9]+\\)\\(([0-9]+),[0-9]+\\)\\([0-9]+,[0-9]+\\)","\\1",d5sdwg$region)
 d5sdwg$end <- gsub("\\([0-9]+,[0-9]+\\)\\([0-9]+,([0-9]+)\\)\\([0-9]+,[0-9]+\\)","\\1",d5sdwg$region)
 #write.table(d5sdwg, file = paste("../qual_filt_",ds,"_WG5SD_peaks.tsv", sep = ""), quote = F, sep = "\t", row.names = F)
+
