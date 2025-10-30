@@ -9,7 +9,7 @@
 ## Data availability
 **Raw data:** NCBI BioProject PRJNA1353610, BioSample accession nos. SAMN52933055–SAMN52933113
 
-**Final VCFs available through Dryad:** https://doi.org/10.5061/dryad.ncjsxkt66
+**Output data available through Dryad:** https://doi.org/10.5061/dryad.ncjsxkt66
 
 ## Directories & Files
 - **Call_SNPs_Pipeline** - scripts for calling & filtering SNPs; see the [dedicated GitHub repository](https://github.com/slcapel/DRAGEN-GATK4_SNP_calling_pipeline) for more detailed information
