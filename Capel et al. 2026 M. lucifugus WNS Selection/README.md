@@ -12,7 +12,7 @@
 **Final VCFs available through Dryad:** https://doi.org/10.5061/dryad.ncjsxkt66
 
 ## Directories & Files
-- **Call_SNPs_Pipeline** - scripts for calling & filtering SNPs; see the [dedicated GitHub repository](https://github.com/slcapel/DRAGEN-GATK4_SNP_calling_pipeline) for detailed information
+- **Call_SNPs_Pipeline** - scripts for calling & filtering SNPs; see the [dedicated GitHub repository](https://github.com/slcapel/DRAGEN-GATK4_SNP_calling_pipeline) for more detailed information
 - **data_files** - metadata & auxiliary files
 - ANGSD_Fst.md - calculate smoothed Fst using ANGSD
 - ANGSD_Fst_outliers.R - call Fst outliers & generate Manhattan plots
