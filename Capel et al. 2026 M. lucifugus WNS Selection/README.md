@@ -6,17 +6,18 @@
 
 **Article doi:**
 
-**Raw data:**
+**Raw data:** NCBI BioProject PRJNA1353610, BioSample accession nos. SAMN52933055–SAMN52933113
 
-**Publicly available code & data:** https://doi.org/10.5061/dryad.ncjsxkt66
+**Final VCFs available through Dryad:** https://doi.org/10.5061/dryad.ncjsxkt66
 
 
 ## Directories & Files
 - **Call_SNPs_Pipeline** - scripts for calling & filtering SNPs
+- **data_files** - metadata & auxiliary files
 - ANGSD_Fst.md - calculate smoothed Fst using ANGSD
 - ANGSD_Fst_outliers.R - call Fst outliers & generate Manhattan plots
 - XP-CLR.md - run XP-CLR
 - XP-CLR_outliers.R - call XP-CLR outliers & generate Manhattan plots
 - rehh.md - scripts for running REHH & calculating Rsb
 - REHH_Rsb_outliers.R - call Rsb outliers & generate Manhattan plots
-- **data_files** - metadata & auxiliary files
+- SNPRelate.R - calculate pairwise kinship on all individuals
