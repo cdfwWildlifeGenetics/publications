@@ -1,4 +1,4 @@
-Scripts for data anlayses associated with the publication:  
+Scripts for data analyses associated with the publication:  
 Population genomic insights into recent nutria (Myocastor coypus) invasion dynamics  
 Published in: Evolutionary Applications (2025)  
 Authors: Kristen D. Ahrens, Joshua M. Hallas, Antionette J. Piaggio, Kelly L. Carrothers, Valerie K. Cook, Michael R. Buchalski  
