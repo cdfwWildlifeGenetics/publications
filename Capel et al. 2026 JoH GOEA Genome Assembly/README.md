@@ -1,4 +1,4 @@
-# A genome assembly of the North American golden eagle, Aquila chrysaetos canadensis
+# A genome assembly of the North American golden eagle, *Aquila chrysaetos canadensis*
 
 Dataset DOI: [10.5061/dryad.2280gb65r](https://doi.org/10.5061/dryad.2280gb65r)
 
