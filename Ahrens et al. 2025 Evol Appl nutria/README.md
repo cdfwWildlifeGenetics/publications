@@ -9,6 +9,7 @@ Novel mitochondrial sequences were uploaded to NCBI GenBank under accession numb
 Individual FASTQ files can be found on NCBI's Sequence Read Archive: BioProject PRJNA1328208 (accession numbers SAMN51307640-SAMN51307946).  
 Sample metadata can be found in the supplemental materials (Table S1) of the publication.
 
-### Nutria FASTQ to VCF Workflow
+### Nutria FASTQ to VCF Workflow ###
 
-👉 [Click here to view the rendered HTML report (with tabs)](https://cdfwWildlifeGenetics.github.io/publications/Ahrens%20et%20al.%202025%20Evol%20Appl%20nutria/nutria_fastq_to_vcf.html){:target="_blank"}
+[Click here to view the rendered RMD html with working tabs](https://cdfwWildlifeGenetics.github.io/publications/Ahrens%20et%20al.%202025%20Evol%20Appl%20nutria/)
+
