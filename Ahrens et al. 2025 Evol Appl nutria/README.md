@@ -11,5 +11,5 @@ Sample metadata can be found in the supplemental materials (Table S1) of the pub
 
 ### Nutria FASTQ to VCF Workflow ###
 
-[Click here to view the rendered RMD html with working tabs](https://cdfwWildlifeGenetics.github.io/publications/Ahrens%20et%20al.%202025%20Evol%20Appl%20nutria/)
+[Open the full HTML version of the Nutria FASTQ-to-VCF workflow](https://cdfwWildlifeGenetics.github.io/publications/Ahrens%20et%20al.%202025%20Evol%20Appl%20nutria/)
 
