@@ -10,9 +10,8 @@ snpgdsSummary("snp_thin.gds")
 genofile <- snpgdsOpen("snp_thin.gds", allow.duplicate = T)
 sample.id <- read.gdsn(index.gdsn(genofile, "sample.id"))
 snpset.id <- c(snpgdsSNPList(genofile)[,1])
-snp.id <- sample(snpset.id, round(length(snpset.id)/10))
 set.seed(100)
-ibd <- snpgdsIBDMLE(genofile, sample.id=sample.id, snp.id = snp.id, 
+ibd <- snpgdsIBDMLE(genofile, sample.id=sample.id, snp.id = snpset.id, 
                     autosome.only = F, maf = NaN, missing.rate = NaN, 
                     num.thread=2)
 snpgdsClose(genofile)
