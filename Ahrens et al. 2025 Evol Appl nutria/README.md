@@ -3,8 +3,9 @@ Population genomic insights into recent nutria (Myocastor coypus) invasion dynam
 Published in: Evolutionary Applications (2025)  
 Authors: Kristen D. Ahrens, Joshua M. Hallas, Antionette J. Piaggio, Kelly L. Carrothers, Valerie K. Cook, Michael R. Buchalski  
 Corresponding author: kristen.ahrens@wildlife.ca.gov
+Open Access at: https://onlinelibrary.wiley.com/doi/full/10.1111/eva.70168
 
-Filtered VCF files and mitochondrial sequencing data can be found on the DRYAD repository for this publication at:  
+Filtered VCF files and mitochondrial sequencing data can be found on the DRYAD repository for this publication at: https://datadryad.org/dataset/doi:10.5061/dryad.f1vhhmh92
 Novel mitochondrial sequences were uploaded to NCBI GenBank under accession numbers PX240733-35.  
 Individual FASTQ files can be found on NCBI's Sequence Read Archive: BioProject PRJNA1328208 (accession numbers SAMN51307640-SAMN51307946).  
 Sample metadata can be found in the supplemental materials (Table S1) of the publication.
