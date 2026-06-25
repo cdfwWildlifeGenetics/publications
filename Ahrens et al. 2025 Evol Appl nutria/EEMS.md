@@ -134,7 +134,7 @@ plots_atratus$qrates01 #generates diversity rates figure
 
 dev.print(pdf, "/Users/jhallas/Documents/cdfw/nutria/popgen_analysis/figures/eems_all_jan1_q.pdf")
 ```
-# EEMS visuialization with canals
+# EEMS Visiualization with canals
 *Visualize plots*
 ```{r}
 devtools::install_github("dkahle/ggmap")
