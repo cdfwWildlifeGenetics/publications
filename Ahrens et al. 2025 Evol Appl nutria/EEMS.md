@@ -134,3 +134,117 @@ plots_atratus$qrates01 #generates diversity rates figure
 
 dev.print(pdf, "/Users/jhallas/Documents/cdfw/nutria/popgen_analysis/figures/eems_all_jan1_q.pdf")
 ```
+# EEMS visuialization with canals
+*Visualize plots*
+```{r}
+devtools::install_github("dkahle/ggmap")
+install_github("dipetkov/reemsplots2")
+
+library("devtools")
+library("ggmap")
+library("maps")
+library("mapdata")
+library("maptools")
+library("dplyr")
+library("reemsplots2")
+library("ggplot2")      # Modify the default plots
+library("rworldmap")    # Add a geographic map
+library("mapproj")      # Change the projection
+library("RColorBrewer") # Change the color scheme
+library("sp") # Change the color scheme
+library("Polychrome")
+library("rworldxtra")
+library("farver")
+library("stringr")
+library("viridis")
+library("sf")
+```
+
+**Load files / make plot**
+```{r}
+
+####### selects all three chains
+mcmcpath_nutria  <- c("/Users/jhallas/Documents/cdfw/nutria/popgen_analysis/nutria_all_jan9_Indiv267-nSites6809-EEMS-nDemes600-chain1",
+                      "/Users/jhallas/Documents/cdfw/nutria/popgen_analysis/nutria_all_jan9_Indiv267-nSites6809-EEMS-nDemes600-chain2",
+                      "/Users/jhallas/Documents/cdfw/nutria/popgen_analysis/nutria_all_jan9_Indiv267-nSites6809-EEMS-nDemes600-chain3")
+
+####### generates effective migration surfaces
+plots <- make_eems_plots(mcmcpath_nutria, longlat = F, dpi = 600, add_grid = F,
+                            col_grid = "#BBBBBB", add_demes = F, col_demes = "#000000",
+                            add_outline = F, col_outline = "black", eems_colors = NULL,
+                            prob_level = 0.9, m_colscale = NULL, q_colscale = NULL,
+                            add_abline = FALSE)
+
+####### make plots
+plots$mrates01 #generates migration rates figure
+plots$qrates01 #generates diversity rates figure
+plots$mrates02
+plots$qrates02
+plots$pilogl01
+```
+
+___
+
+*load .shp features*
+```{r}
+
+library(dplyr)
+
+features_merge_final <- st_read(dsn = "features_merge_final.shp")
+San_joaquin_merced_final <- st_read(dsn = "San_joaquin_merced_final.shp")
+canals_final <- st_read(dsn = "canals_new_new.shp")
+
+features_merge_final <- sf::st_transform(
+  x = features_merge_final,
+  crs = "NAD83"
+)
+
+canals_final <- sf::st_transform(
+  x = canals_final,
+  crs = "NAD83"
+)
+
+plot(features_merge_final)
+plot(San_joaquin_merced_final)
+plot(canals_final)
+
+#convert features to tables
+df_features_merge_final <- features_merge_final %>%
+  st_coordinates() %>%
+  as.data.frame()
+
+df_San_joaquin_merced_final <- San_joaquin_merced_final %>%
+  st_coordinates() %>%
+  as.data.frame()
+
+df_canals_final <- canals_final %>%
+  st_coordinates() %>%
+  as.data.frame()
+```
+___
+
+
+```{r}
+
+pdf("eems_map_nutria.pdf", width = 6, height = 6) 
+
+plots$mrates01 + 
+  geom_path(data=california, aes(x = long, y = lat, group = group), color = "black", size=0.25) + 
+    coord_sf(xlim=c(-122.4, -119.8), ylim = c(36, 38.5)) +
+  geom_polygon(data=df_features_merge_final, aes(x = X, y = Y, group = L2), size = .1, fill = "gray22", color= "NA") +
+  geom_path(data=df_San_joaquin_merced_final, aes(x = X, y = Y, group = L2), color = "black", size = .1) +
+  geom_path(data=df_canals_final, aes(x = X, y = Y, group = L1), size = .1, color = "black") +
+  theme_bw() +
+    labs(x = "Longitude", y = "Latitude") +
+    theme(legend.position = "right", 
+          panel.border = element_rect(size = 1, colour = "black"),
+          axis.title = element_text(size = 12), 
+          axis.text = element_text(size = 10), 
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank()) +
+  scale_x_continuous(breaks = seq(-122.4, -119.8, by = 1), labels = seq(-122.4, -119.8, by = 1)) +
+  scale_y_continuous(breaks = seq(36, 38.5, by = 1), labels = seq(36, 38.5, by = 1))
+ dev.off()
+
+```
+
