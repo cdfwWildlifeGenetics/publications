@@ -1,13 +1,13 @@
 # Code for Eastern *Myotis lucifugus* WNS Selection Manuscript
 ## Manuscript Information
-**Title:** Evidence for selection on white-nose syndrome resistance in the little brown bat (*Myotis lucifugus lucifugus*): a comprehensive approach
+**Title:** A multifaceted approach reveals complex genomic mediation of white-nose syndrome adaptative response in the little brown bat (*Myotis lucifugus*)
 
-**Authors:** [Samantha L. R. Capel](https://orcid.org/0000-0001-5014-5919), [Devaughn Fraser](https://orcid.org/0000-0002-4838-7107), [Amy Russell](https://orcid.org/0000-0002-2936-1112), [Peter Sudmant](https://orcid.org/0000-0002-9573-8248), [Juan Manuel Vazquez](https://orcid.org/0000-0001-8341-2390), [Maarten Vonhof](https://orcid.org/0000-0001-6747-0523), [Thomas Lilley](https://orcid.org/0000-0001-5864-4958), [Michale Buchalski](https://orcid.org/0000-0002-5917-3577)
+**Dataset author:** Samantha L. R. Capel; email: <Samantha.Capel@wildlife.ca.gov> or <slr.capel2@gmail.com>
 
-**Article doi:**
+**Citation:** Samantha L. R. Capel, Devaughn L. Fraser, Kenneth A. Field, DeeAnn M. Reeder, Amy L. Russell, Peter H. Sudmant, Juan Manuel Vazquez, Maarten J. Vonhof, Thomas M. Lilley, and Michael R. Buchalski. (2026). A multifaceted approach reveals complex genomic mediation of white-nose syndrome adaptative response in the little brown bat (*Myotis lucifugus*). *Molecular Ecology* **VOL**(ISS):PG-PG. https://doi.org/
 
 ## Data availability
-**Raw data:** NCBI BioProject PRJNA1353610, BioSample accession nos. SAMN52933055–SAMN52933113
+**Raw data:** [NCBI BioProject PRJNA1353610](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1353610/), BioSample accession nos. SAMN52933055–SAMN52933113
 
 **Output data available through Dryad:** https://doi.org/10.5061/dryad.ncjsxkt66
 
