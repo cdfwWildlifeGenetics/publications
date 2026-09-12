@@ -7,9 +7,9 @@
 **Citation:** Samantha L. R. Capel, Devaughn L. Fraser, Kenneth A. Field, DeeAnn M. Reeder, Amy L. Russell, Peter H. Sudmant, Juan Manuel Vazquez, Maarten J. Vonhof, Thomas M. Lilley, and Michael R. Buchalski. (2026). A multifaceted approach reveals complex genomic mediation of white-nose syndrome adaptative response in the little brown bat (*Myotis lucifugus*). *Molecular Ecology* **VOL**(ISS):PG-PG. https://doi.org/
 
 ## Data availability
-**Raw data:** [NCBI BioProject PRJNA1353610](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1353610/), BioSample accession nos. SAMN52933055–SAMN52933113
+Raw data: [NCBI BioProject PRJNA1353610](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1353610/), BioSample accession nos. SAMN52933055–SAMN52933113
 
-**Output data available through Dryad:** https://doi.org/10.5061/dryad.ncjsxkt66
+Output data available through Dryad: https://doi.org/10.5061/dryad.ncjsxkt66
 
 ## Directories & Files
 - **Call_SNPs_Pipeline** - scripts for calling & filtering SNPs; see the [dedicated GitHub repository](https://github.com/slcapel/DRAGEN-GATK4_SNP_calling_pipeline) for more detailed information
