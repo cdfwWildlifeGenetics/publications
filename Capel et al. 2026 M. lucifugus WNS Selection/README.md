@@ -1,6 +1,4 @@
-# Code for Eastern *Myotis lucifugus* WNS Selection Manuscript
-## Manuscript Information
-**Title:** A multifaceted approach reveals complex genomic mediation of white-nose syndrome adaptative response in the little brown bat (*Myotis lucifugus*)
+# Code for A multifaceted approach reveals complex genomic mediation of white-nose syndrome adaptative response in the little brown bat (*Myotis lucifugus*)
 
 **Dataset author:** Samantha L. R. Capel; email: <Samantha.Capel@wildlife.ca.gov> or <slr.capel2@gmail.com>
 
