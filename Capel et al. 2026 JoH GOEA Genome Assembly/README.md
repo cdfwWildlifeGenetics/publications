@@ -1,10 +1,10 @@
 # A genome assembly of the North American golden eagle, *Aquila chrysaetos canadensis*
 
-**Dataset author:** Samantha L. R. Capel; email: <Samantha.Capel@wildlife.ca.gov> or <slr.capel2@gmail.com>
+**Dataset author:** Samantha L. R. Capel <<Samantha.Capel@wildlife.ca.gov>> or <<slr.capel2@gmail.com>>
 
 This publication is pubilcally available at <https://doi.org/10.1093/jhered/esag022>
 
-**Citation:** Samantha L R Capel, Robert N Fisher, Merly Escalona, Peter H Bloom, Noravit Chumchim, Colin W Fairbairn, Oanh H Nguyen, Ruta M Sahasrabudhe, William E Seligmann, Todd E Katzner, H Bradley Shaffer, and Michael R Buchalski. (2026). A genome assembly of the North American golden eagle, *Aquila chrysaetos canadensis*. *Journal of Heredity* **117**(4):945–956. https://doi.org/10.1093/jhered/esag022
+**Citation:** Capel, S.L.R., Fisher, R.N., Escalona, M., Bloom, P.H., Chumchim, N., Fairbairn, C.W., Nguyen, O.H., Sahasrabudhe, R.M., Seligmann, W.E., Katzner, T.E., Shaffer, H.B., and Buchalski, M.R.. (2026). A genome assembly of the North American golden eagle, *Aquila chrysaetos canadensis*. *Journal of Heredity* **117**(4):945–956. https://doi.org/10.1093/jhered/esag022
 
 Dataset DOI: [10.5061/dryad.2280gb65r](https://doi.org/10.5061/dryad.2280gb65r)
 
