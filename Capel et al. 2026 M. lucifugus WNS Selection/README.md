@@ -2,7 +2,7 @@
 
 **Dataset author:** Samantha L. R. Capel <<Samantha.Capel@wildlife.ca.gov>> or <<slr.capel2@gmail.com>>
 
-**Citation:** Capel, S.L.R., Fraser, D.L., Field, K.A., Reeder, D.M., Russell, A.L, Sudmant, P.H., Vazquez, J.M., Vonhof, M.J., Lilley, T.M., and Buchalski, M.R. (2026). A multifaceted approach reveals complex genomic mediation of white-nose syndrome adaptative response in the little brown bat (*Myotis lucifugus*). *Molecular Ecology* **35**(18):e70559. https://doi.org/10.1111/mec.70559.
+**Citation:** Capel, S.L.R., Fraser, D.L., Field, K.A., Reeder, D.M., Russell, A.L, Sudmant, P.H., Vazquez, J.M., Vonhof, M.J., Lilley, T.M., and Buchalski, M.R. (2026). A multifaceted approach reveals complex genomic mediation of white-nose syndrome adaptive response in the little brown bat (*Myotis lucifugus*). *Molecular Ecology* **35**(18):e70559. https://doi.org/10.1111/mec.70559.
 
 ## Data availability
 Raw data: [NCBI BioProject PRJNA1353610](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1353610/), BioSample accession nos. SAMN52933055–SAMN52933113
